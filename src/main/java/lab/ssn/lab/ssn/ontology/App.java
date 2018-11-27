@@ -83,10 +83,8 @@ public class App
 		manager.applyChange(new AddImport(ontology, importDeclarationSSN));
 
 		OWLClass Resource = factory.getOWLClass(IRI.create(ns,"Resource"));
-		
 		OWLClass Process = factory.getOWLClass(IRI.create(ns,"Process"));
-		
-		ontology.add(factory.getOWLDeclarationAxiom(Resource));
+		//ontology.add(factory.getOWLDeclarationAxiom(Resource));
 		ontology.add(factory.getOWLDeclarationAxiom(Process));
 		
 		OWLClass Platform 			= factory.getOWLClass(IRI.create(pre_SOSAOnt + "Platform"));
@@ -96,14 +94,15 @@ public class App
 		OWLClass ObservableProperty = factory.getOWLClass(IRI.create(pre_SOSAOnt + "ObservableProperty"));
 		OWLClass Observation        = factory.getOWLClass(IRI.create(pre_SOSAOnt + "Observation"));
 		OWLClass FeatureOfInterest  = factory.getOWLClass(IRI.create(pre_SOSAOnt + "FeatureOfInterest"));
-		
 		ontology.add(factory.getOWLDeclarationAxiom(System));
-		ontology.add(factory.getOWLDeclarationAxiom(Platform));
+		//ontology.add(factory.getOWLDeclarationAxiom(Platform));
 		ontology.add(factory.getOWLSubClassOfAxiom(Sensor,System));
 		ontology.add(factory.getOWLDeclarationAxiom(Property));
 		ontology.add(factory.getOWLSubClassOfAxiom(ObservableProperty, Property));
 		ontology.add(factory.getOWLDeclarationAxiom(Observation));
 		ontology.add(factory.getOWLDeclarationAxiom(FeatureOfInterest));
+		
+		ontology.add(factory.getOWLEquivalentClassesAxiom(Resource, Platform));
 		
 		OWLObjectProperty madeObservation = factory.getOWLObjectProperty(IRI.create(pre_SOSAOnt + "madeObservation"));
 		OWLObjectPropertyDomainAxiom domainAxiom = factory.getOWLObjectPropertyDomainAxiom(madeObservation, Sensor);
@@ -143,7 +142,6 @@ public class App
 		OWLClass TemporalEntity = factory.getOWLClass(IRI.create(pre_TIME + "TemporalEntity"));
 		OWLClass Instant        = factory.getOWLClass(IRI.create(pre_TIME + "Instant"));
 		OWLClass Interval       = factory.getOWLClass(IRI.create(pre_TIME + "Interval"));
-		
 		ontology.add(factory.getOWLDeclarationAxiom(TemporalEntity));
 		ontology.add(factory.getOWLSubClassOfAxiom(Instant, TemporalEntity));
 		ontology.add(factory.getOWLSubClassOfAxiom(Interval, TemporalEntity));
@@ -172,7 +170,6 @@ public class App
 		OWLClass SpatialObject = factory.getOWLClass(IRI.create(pre_GEO + "SpatialObject"));
 		OWLClass Feature = factory.getOWLClass(IRI.create(pre_GEO + "Feature"));
 		OWLClass Geometry = factory.getOWLClass(IRI.create(pre_GEO + "Geometry"));
-		
 		ontology.add(factory.getOWLDeclarationAxiom(SpatialObject));
 		ontology.add(factory.getOWLSubClassOfAxiom(Feature, SpatialObject));
 		ontology.add(factory.getOWLSubClassOfAxiom(Geometry, SpatialObject));
@@ -184,34 +181,48 @@ public class App
 		ontology.add(hasGeometrydomainAxiom);
 		ontology.add(hasGeometryrangeAxiom);
 		
+		OWLObjectProperty hasTime = factory.getOWLObjectProperty(IRI.create(ns,"hasTime"));
+		OWLObjectPropertyDomainAxiom hasTimedomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasTime, Observation);
+		OWLObjectPropertyRangeAxiom hasTimerangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasTime, TemporalEntity);
+		ontology.add(factory.getOWLDeclarationAxiom(hasTime));
+		ontology.add(hasTimedomainAxiom);
+		ontology.add(hasTimerangeAxiom);
 
-		
-		OWLDataProperty resultTime = factory.getOWLDataProperty(IRI.create(pre_SOSAOnt + "resultTime"));
-		ontology.add(factory.getOWLDeclarationAxiom(resultTime));
-		
-        //OntologyManager m = OntManagers.createONT();
-        //OWLDataFactory df = m.getOWLDataFactory();
+		OWLObjectProperty madeIn = factory.getOWLObjectProperty(IRI.create(ns,"madeIn"));
+		OWLObjectPropertyDomainAxiom madeIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(madeIn, Observation);
+		OWLObjectPropertyRangeAxiom madeInrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(madeIn, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(madeIn));
+		ontology.add(madeIndomainAxiom);
+		ontology.add(madeInrangeAxiom);
 
-        // compose ontology:
-        //OntologyModel o = m.createOntology(IRI.create(uri));
-        //OWLAnnotationProperty a1 = df.getOWLAnnotationProperty(IRI.create(ns, "prop1"));
-        //OWLAnnotationProperty a2 = df.getOWLAnnotationProperty(IRI.create(ns, "prop2"));
-        //OWLClass c1 = df.getOWLClass(IRI.create(ns, "class1"));
-        //OWLNamedIndividual i1 = df.getOWLNamedIndividual(IRI.create(ns, "indi1"));
-        //o.add(df.getOWLDeclarationAxiom(a1));
-        //o.add(df.getOWLDeclarationAxiom(a2));
-        //o.add(df.getOWLDeclarationAxiom(c1));
-        //o.add(df.getOWLAnnotationPropertyDomainAxiom(a1, c1.getIRI()));
-        //o.add(df.getOWLClassAssertionAxiom(c1, i1));
-        //o.add(df.getOWLSubAnnotationPropertyOfAxiom(a2, a1));
-        //o.add(df.getOWLAnnotationAssertionAxiom(a1, df.getOWLAnonymousIndividual(), i1.getIRI()));
-
-        //String pre_TIME = "http://www.w3.org/2006/time#";
-		//OWLImportsDeclaration importDeclarationTIME = m.getOWLDataFactory().getOWLImportsDeclaration(IRI.create(pre_TIME));
-		//m.applyChange(new AddImport(o, importDeclarationTIME));
+		OWLObjectProperty locatedIn = factory.getOWLObjectProperty(IRI.create(ns,"locatedIn"));
+		OWLObjectPropertyDomainAxiom locatedIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(locatedIn, Sensor);
+		OWLObjectPropertyRangeAxiom locatedInrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(locatedIn, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(locatedIn));
+		ontology.add(locatedIndomainAxiom);
+		ontology.add(locatedInrangeAxiom);
 		
-        
-        //Create a file for the new format
+		OWLObjectProperty islocatedIn = factory.getOWLObjectProperty(IRI.create(ns,"islocatedIn"));
+		OWLObjectPropertyDomainAxiom islocatedIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(islocatedIn, Sensor);
+		OWLObjectPropertyRangeAxiom islocatedInrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(islocatedIn, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(islocatedIn));
+		ontology.add(islocatedIndomainAxiom);
+		ontology.add(islocatedInrangeAxiom);
+
+		OWLObjectProperty performs = factory.getOWLObjectProperty(IRI.create(ns,"performs"));
+		OWLObjectPropertyDomainAxiom performsdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(performs, Resource);
+		OWLObjectPropertyRangeAxiom performsrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(performs, Process);
+		ontology.add(factory.getOWLDeclarationAxiom(performs));
+		ontology.add(performsdomainAxiom);
+		ontology.add(performsrangeAxiom);
+
+		OWLObjectProperty hasDuration = factory.getOWLObjectProperty(IRI.create(ns,"hasDuration"));
+		OWLObjectPropertyDomainAxiom hasDurationdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasDuration, Process);
+		OWLObjectPropertyRangeAxiom hasDurationrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasDuration, TemporalEntity);
+		ontology.add(factory.getOWLDeclarationAxiom(hasDuration));
+		ontology.add(hasDurationdomainAxiom);
+		ontology.add(hasDurationrangeAxiom);
+		
         File fileformated = new File("/home/franco/Repositories/lab.ssn.ontology/test.owl");
         
         try {

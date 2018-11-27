@@ -23,6 +23,66 @@
     
 
 
+    <!-- http://industry.ont#hasDuration -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#hasDuration">
+        <rdfs:domain rdf:resource="http://industry.ont#Process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://industry.ont#hasTime -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#hasTime">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://industry.ont#islocatedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#islocatedIn">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://industry.ont#locatedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#locatedIn">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://industry.ont#madeIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#madeIn">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://industry.ont#performs -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#performs">
+        <rdfs:domain rdf:resource="http://industry.ont#Resource"/>
+        <rdfs:range rdf:resource="http://industry.ont#Process"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
 
 
@@ -58,7 +118,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasFeatureOfInterest">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterenst"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
     </owl:ObjectProperty>
     
 
@@ -97,7 +157,7 @@
 
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/hasProperty">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterenst"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/ssn/Property"/>
     </owl:ObjectProperty>
     
@@ -125,13 +185,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/sosa/resultTime -->
-
-
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/sosa/resultTime"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -154,7 +207,9 @@
     <!-- http://industry.ont#Resource -->
 
 
-    <owl:Class rdf:about="http://industry.ont#Resource"/>
+    <owl:Class rdf:about="http://industry.ont#Resource">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    </owl:Class>
     
 
 
@@ -208,10 +263,10 @@
     
 
 
-    <!-- http://www.w3.org/ns/sosa/FeatureOfInterenst -->
+    <!-- http://www.w3.org/ns/sosa/FeatureOfInterest -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/ns/sosa/FeatureOfInterenst"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
     
 
 
