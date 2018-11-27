@@ -5,11 +5,9 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/">
     <owl:Ontology rdf:about="http://industry.ont">
-        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql#"/>
-        <owl:imports rdf:resource="http://www.w3.org/2006/time#"/>
-        <owl:imports rdf:resource="http://www.w3.org/ns/ssn/"/>
     </owl:Ontology>
     
 
@@ -316,6 +314,85 @@
 
 
     <owl:Class rdf:about="http://www.w3.org/ns/ssn/Property"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://industry.ont#Meteorology -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Meteorology">
+        <rdf:type rdf:resource="http://industry.ont#Resource"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_WindDir"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_WindSpeed"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_temp_Ambient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Nacelle -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Nacelle">
+        <rdf:type rdf:resource="http://industry.ont#Resource"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_temp_Nacelle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_WindDir -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_WindDir">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_WindSpeed -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_WindSpeed">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_temp_Ambient -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_temp_Ambient">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_temp_Nacelle -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_temp_Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Temp_Nacelle -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Temp_Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 

@@ -5,13 +5,16 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -32,10 +35,10 @@ public class App
         
         OWLOntology ontology = manager.createOntology(IRI.create(ontologyURI));
 
-		OWLDatatype integerDatatype = factory.getIntegerOWLDatatype();
-		OWLDatatype floatDatatype = factory.getFloatOWLDatatype();
-		OWLDatatype doubleDatatype = factory.getDoubleOWLDatatype();
-		OWLDatatype booleanDatatype = factory.getBooleanOWLDatatype();
+		//OWLDatatype integerDatatype = factory.getIntegerOWLDatatype();
+		//OWLDatatype floatDatatype = factory.getFloatOWLDatatype();
+		//OWLDatatype doubleDatatype = factory.getDoubleOWLDatatype();
+		//OWLDatatype booleanDatatype = factory.getBooleanOWLDatatype();
 	    OWLDatatype dateTimeStamp = factory.getOWLDatatype(IRI.create("http://www.w3.org/2001/XMLSchema#dateTimeStamp"));
 		
 	    String pre_GEO = "http://www.opengis.net/ont/geosparql#";
@@ -183,13 +186,53 @@ public class App
 		ontology.add(factory.getOWLDeclarationAxiom(performs));
 		ontology.add(performsdomainAxiom);
 		ontology.add(performsrangeAxiom);
-
+		
 		OWLObjectProperty hasDuration = factory.getOWLObjectProperty(IRI.create(ns,"hasDuration"));
 		OWLObjectPropertyDomainAxiom hasDurationdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasDuration, Process);
 		OWLObjectPropertyRangeAxiom hasDurationrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasDuration, TemporalEntity);
 		ontology.add(factory.getOWLDeclarationAxiom(hasDuration));
 		ontology.add(hasDurationdomainAxiom);
 		ontology.add(hasDurationrangeAxiom);
+		
+		
+		/* INDIVIDUALS */
+		OWLIndividual Nacelle = factory.getOWLNamedIndividual(IRI.create(ns,"Nacelle"));
+		OWLClassAssertionAxiom NucelleResource = factory.getOWLClassAssertionAxiom(Resource, Nacelle);
+		ontology.add(NucelleResource);
+		
+		OWLIndividual S_temp_Nacelle = factory.getOWLNamedIndividual(IRI.create(ns,"S_temp_Nacelle"));
+		OWLClassAssertionAxiom Sensor_temp_Nacelle = factory.getOWLClassAssertionAxiom(Sensor, S_temp_Nacelle);
+		ontology.add(Sensor_temp_Nacelle);
+		
+		OWLIndividual Temp_Nacelle = factory.getOWLNamedIndividual(IRI.create(ns,"Temp_Nacelle"));
+		OWLClassAssertionAxiom Temp_Nacelle_Prop = factory.getOWLClassAssertionAxiom(ObservableProperty, Temp_Nacelle);
+		ontology.add(Temp_Nacelle_Prop);
+		
+		OWLObjectPropertyAssertionAxiom Nacelle_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(hosts, Nacelle, S_temp_Nacelle);
+		ontology.add(Nacelle_SensorTemp);
+		
+		OWLIndividual Meteorology = factory.getOWLNamedIndividual(IRI.create(ns,"Meteorology"));
+		OWLClassAssertionAxiom MeteorologyResource = factory.getOWLClassAssertionAxiom(Resource, Meteorology);
+		ontology.add(MeteorologyResource);
+		
+		OWLIndividual S_temp_Ambient = factory.getOWLNamedIndividual(IRI.create(ns,"S_temp_Ambient"));
+		OWLClassAssertionAxiom Sensor_temp_Ambient = factory.getOWLClassAssertionAxiom(Sensor, S_temp_Ambient);
+		ontology.add(Sensor_temp_Ambient);
+		
+		OWLIndividual S_WindDir = factory.getOWLNamedIndividual(IRI.create(ns,"S_WindDir"));
+		OWLClassAssertionAxiom Sensor_WindDir = factory.getOWLClassAssertionAxiom(Sensor, S_WindDir);
+		ontology.add(Sensor_WindDir);
+		
+		OWLIndividual S_WindSpeed = factory.getOWLNamedIndividual(IRI.create(ns,"S_WindSpeed"));
+		OWLClassAssertionAxiom Sensor_WindSpeed = factory.getOWLClassAssertionAxiom(Sensor, S_WindSpeed);
+		ontology.add(Sensor_WindSpeed);
+		
+		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_temp_Ambient);
+		ontology.add(Meteorolgy_SensorTemp);
+		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorWindDir = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_WindDir);
+		ontology.add(Meteorolgy_SensorWindDir);
+		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorWindSpeed = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_WindSpeed);
+		ontology.add(Meteorolgy_SensorWindSpeed);
 		
         File fileformated = new File("/home/franco/Repositories/lab.ssn.ontology/test.owl");
         
@@ -203,13 +246,12 @@ public class App
     
 
 	/* Populate ontology with data from sensors */
-	OntologyAssistant oa = new OntologyAssistant();
+	//OntologyAssistant oa = new OntologyAssistant();
 
 	//FileInputStream fstream = null;
 	//try {
 	//	fstream = new FileInputStream("/home/franco/DataSets/SECOM/secom_final.data");
 	//} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
 	//	e.printStackTrace();
 	//}
 	//BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -244,13 +286,11 @@ public class App
 				//ruleEngine.exportInferredOWLAxioms();
 	//}
 	//} catch (IOException e) {
-		// TODO Auto-generated catch block
 	//e.printStackTrace();
 	//}
 	//try {
 	//	br.close();
 	//} catch (IOException e) {
-		// TODO Auto-generated catch block
 	//e.printStackTrace();
 	//}
     }
