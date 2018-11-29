@@ -35,17 +35,20 @@ public class App
         
         OWLOntology ontology = manager.createOntology(IRI.create(ontologyURI));
 
-		//OWLDatatype integerDatatype = factory.getIntegerOWLDatatype();
-		//OWLDatatype floatDatatype = factory.getFloatOWLDatatype();
-		//OWLDatatype doubleDatatype = factory.getDoubleOWLDatatype();
-		//OWLDatatype booleanDatatype = factory.getBooleanOWLDatatype();
-	    OWLDatatype dateTimeStamp = factory.getOWLDatatype(IRI.create("http://www.w3.org/2001/XMLSchema#dateTimeStamp"));
 		
 	    String pre_GEO = "http://www.opengis.net/ont/geosparql#";
 	    String pre_TIME = "http://www.w3.org/2006/time#";
 		String pre_SOSAOnt = "http://www.w3.org/ns/sosa/";
 		String pre_SSNOnt = "http://www.w3.org/ns/ssn/";
-
+		
+		//OWLDatatype floatDatatype = factory.getFloatOWLDatatype();
+		//OWLDatatype doubleDatatype = factory.getDoubleOWLDatatype();
+		//OWLDatatype booleanDatatype = factory.getBooleanOWLDatatype();
+		//OWLDatatype integerDatatype = factory.getIntegerOWLDatatype();
+		OWLDatatype doubleDatatype = factory.getDoubleOWLDatatype();
+		OWLDatatype dateTimeStamp = factory.getOWLDatatype(IRI.create("http://www.w3.org/2001/XMLSchema#dateTimeStamp"));
+		OWLDatatype wkt = factory.getOWLDatatype(pre_GEO + "wktLiteral");
+		
         OWLImportsDeclaration importDeclarationGEO = factory.getOWLImportsDeclaration(IRI.create(pre_GEO));
 		OWLImportsDeclaration importDeclarationTIME = factory.getOWLImportsDeclaration(IRI.create(pre_TIME));
 		OWLImportsDeclaration importDeclarationSSN = factory.getOWLImportsDeclaration(IRI.create(pre_SSNOnt));
@@ -65,6 +68,9 @@ public class App
 		OWLClass ObservableProperty = factory.getOWLClass(IRI.create(pre_SOSAOnt + "ObservableProperty"));
 		OWLClass Observation        = factory.getOWLClass(IRI.create(pre_SOSAOnt + "Observation"));
 		OWLClass FeatureOfInterest  = factory.getOWLClass(IRI.create(pre_SOSAOnt + "FeatureOfInterest"));
+		OWLClass Result             = factory.getOWLClass(IRI.create(pre_SOSAOnt + "Result"));
+		
+		ontology.add(factory.getOWLDeclarationAxiom(Result));
 		ontology.add(factory.getOWLDeclarationAxiom(System));
 		//ontology.add(factory.getOWLDeclarationAxiom(Platform));
 		ontology.add(factory.getOWLSubClassOfAxiom(Sensor,System));
@@ -75,13 +81,25 @@ public class App
 		
 		ontology.add(factory.getOWLEquivalentClassesAxiom(Resource, Platform));
 		
+		OWLClass Situation = factory.getOWLClass(IRI.create(ns,"Situation"));
+		ontology.add(factory.getOWLSubClassOfAxiom(Situation, Observation));
+		//ontology.add(factory.getOWLDeclarationAxiom(Situation));
+		
+		
+		OWLObjectProperty hasResult = factory.getOWLObjectProperty(IRI.create(pre_SOSAOnt + "hasResult"));
+		OWLObjectPropertyDomainAxiom hasResultdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasResult, Observation);
+		OWLObjectPropertyRangeAxiom hasResultrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasResult, Result);
+		ontology.add(factory.getOWLDeclarationAxiom(hasResult));
+		ontology.add(hasResultdomainAxiom);
+		ontology.add(hasResultrangeAxiom);
+		
 		OWLObjectProperty madeObservation = factory.getOWLObjectProperty(IRI.create(pre_SOSAOnt + "madeObservation"));
 		OWLObjectPropertyDomainAxiom domainAxiom = factory.getOWLObjectPropertyDomainAxiom(madeObservation, Sensor);
 		OWLObjectPropertyRangeAxiom rangeAxiom = factory.getOWLObjectPropertyRangeAxiom(madeObservation, Observation);
 		ontology.add(factory.getOWLDeclarationAxiom(madeObservation));
 		ontology.add(domainAxiom);
 		ontology.add(rangeAxiom);
-		
+				
 		OWLObjectProperty observedProperty = factory.getOWLObjectProperty(IRI.create(pre_SOSAOnt + "observedProperty"));
 		OWLObjectPropertyDomainAxiom observedPropertydomainAxiom = factory.getOWLObjectPropertyDomainAxiom(observedProperty, Observation);
 		OWLObjectPropertyRangeAxiom observedPropertyrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(observedProperty, ObservableProperty);
@@ -145,6 +163,20 @@ public class App
 		ontology.add(factory.getOWLSubClassOfAxiom(Feature, SpatialObject));
 		ontology.add(factory.getOWLSubClassOfAxiom(Geometry, SpatialObject));
 		
+		OWLDataProperty asWKT = factory.getOWLDataProperty(IRI.create(pre_GEO + "asWKT"));
+		OWLDataPropertyDomainAxiom asWKTdomainAxiom = factory.getOWLDataPropertyDomainAxiom(asWKT, Geometry);
+		OWLDataPropertyRangeAxiom asWKTrangeAxiom = factory.getOWLDataPropertyRangeAxiom(asWKT, wkt);
+		ontology.add(factory.getOWLDeclarationAxiom(asWKT));
+		ontology.add(asWKTdomainAxiom);
+		ontology.add(asWKTrangeAxiom);
+		
+		OWLDataProperty hasSimpleResult = factory.getOWLDataProperty(IRI.create(pre_SOSAOnt + "hasSimpleResult"));
+		OWLDataPropertyDomainAxiom hasSimpleResultdomainAxiom = factory.getOWLDataPropertyDomainAxiom(hasSimpleResult, Observation);
+		OWLDataPropertyRangeAxiom hasSimpleResultrangeAxiom = factory.getOWLDataPropertyRangeAxiom(hasSimpleResult, doubleDatatype);
+		ontology.add(factory.getOWLDeclarationAxiom(hasSimpleResult));
+		ontology.add(hasSimpleResultdomainAxiom);
+		ontology.add(hasSimpleResultrangeAxiom);
+		
 		OWLObjectProperty hasGeometry = factory.getOWLObjectProperty(IRI.create(pre_GEO + "hasGeometry"));
 		OWLObjectPropertyDomainAxiom hasGeometrydomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasGeometry, Feature);
 		OWLObjectPropertyRangeAxiom hasGeometryrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasGeometry, Geometry);
@@ -166,15 +198,15 @@ public class App
 		ontology.add(madeIndomainAxiom);
 		ontology.add(madeInrangeAxiom);
 
-		OWLObjectProperty locatedIn = factory.getOWLObjectProperty(IRI.create(ns,"locatedIn"));
-		OWLObjectPropertyDomainAxiom locatedIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(locatedIn, Sensor);
-		OWLObjectPropertyRangeAxiom locatedInrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(locatedIn, SpatialObject);
-		ontology.add(factory.getOWLDeclarationAxiom(locatedIn));
-		ontology.add(locatedIndomainAxiom);
-		ontology.add(locatedInrangeAxiom);
+		OWLObjectProperty hasSensor = factory.getOWLObjectProperty(IRI.create(ns,"hasSensor"));
+		OWLObjectPropertyDomainAxiom hasSensordomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasSensor, SpatialObject);
+		OWLObjectPropertyRangeAxiom hasSensorrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasSensor, Sensor);
+		ontology.add(factory.getOWLDeclarationAxiom(hasSensor));
+		ontology.add(hasSensordomainAxiom);
+		ontology.add(hasSensorrangeAxiom);
 		
 		OWLObjectProperty islocatedIn = factory.getOWLObjectProperty(IRI.create(ns,"islocatedIn"));
-		OWLObjectPropertyDomainAxiom islocatedIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(islocatedIn, Sensor);
+		OWLObjectPropertyDomainAxiom islocatedIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(islocatedIn, Resource);
 		OWLObjectPropertyRangeAxiom islocatedInrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(islocatedIn, SpatialObject);
 		ontology.add(factory.getOWLDeclarationAxiom(islocatedIn));
 		ontology.add(islocatedIndomainAxiom);

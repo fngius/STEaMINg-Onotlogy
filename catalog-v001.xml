@@ -2,8 +2,8 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="http://www.w3.org/2006/time#2016" uri="file:/home/franco/Downloads/time.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1543330829226" name="duplicate:file:/C:/d2rq-0.8.1/testMap11.owl" uri="new.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1543330829226" name="duplicate:file:/C:/d2rq-0.8.1/testMap11.owl" uri="ContextOntology.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1543330829226" name="http://industry.ont" uri="test.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1543331677578" name="duplicate:file:/C:/d2rq-0.8.1/testMap11.owl" uri="new.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1543331677578" name="duplicate:file:/C:/d2rq-0.8.1/testMap11.owl" uri="ContextOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1543331677578" name="http://industry.ont" uri="test.owl"/>
     </group>
 </catalog>
