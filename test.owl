@@ -113,6 +113,86 @@
     
 
 
+    <!-- http://www.opengis.net/ont/geosparql#rcc8dc -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8dc">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ec -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ec">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8eq -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8eq">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ntpp -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ntpp">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ntppi -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ntppi">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8po -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8po">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8tpp -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8tpp">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8tppi -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8tppi">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/2006/time#hasBeginning -->
 
 
@@ -259,6 +339,7 @@
 
     <owl:Class rdf:about="http://industry.ont#Resource">
         <owl:equivalentClass rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
     </owl:Class>
     
 
@@ -348,7 +429,9 @@
     <!-- http://www.w3.org/ns/sosa/Platform -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Platform"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Platform">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+    </owl:Class>
     
 
 

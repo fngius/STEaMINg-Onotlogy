@@ -135,6 +135,14 @@ public class App
 		ontology.add(factory.getOWLSubClassOfAxiom(Instant, TemporalEntity));
 		ontology.add(factory.getOWLSubClassOfAxiom(Interval, TemporalEntity));
 
+		//AddImport ALLEN Operators
+		//OWLObjectProperty hasBeginning = factory.getOWLObjectProperty(IRI.create(pre_TIME + "hasBeginning"));
+		//OWLObjectPropertyDomainAxiom hasBeginningdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasBeginning, TemporalEntity);
+		//OWLObjectPropertyRangeAxiom hasBeginningrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasBeginning, Instant);
+		//ontology.add(factory.getOWLDeclarationAxiom(hasBeginning));
+		//ontology.add(hasBeginningdomainAxiom);
+		//ontology.add(hasBeginningrangeAxiom);
+		
 		OWLObjectProperty hasBeginning = factory.getOWLObjectProperty(IRI.create(pre_TIME + "hasBeginning"));
 		OWLObjectPropertyDomainAxiom hasBeginningdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasBeginning, TemporalEntity);
 		OWLObjectPropertyRangeAxiom hasBeginningrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasBeginning, Instant);
@@ -163,6 +171,9 @@ public class App
 		ontology.add(factory.getOWLSubClassOfAxiom(Feature, SpatialObject));
 		ontology.add(factory.getOWLSubClassOfAxiom(Geometry, SpatialObject));
 		
+		ontology.add(factory.getOWLSubClassOfAxiom(Resource, Feature));
+		ontology.add(factory.getOWLSubClassOfAxiom(Platform, Feature));
+		
 		OWLDataProperty asWKT = factory.getOWLDataProperty(IRI.create(pre_GEO + "asWKT"));
 		OWLDataPropertyDomainAxiom asWKTdomainAxiom = factory.getOWLDataPropertyDomainAxiom(asWKT, Geometry);
 		OWLDataPropertyRangeAxiom asWKTrangeAxiom = factory.getOWLDataPropertyRangeAxiom(asWKT, wkt);
@@ -183,6 +194,62 @@ public class App
 		ontology.add(factory.getOWLDeclarationAxiom(hasGeometry));
 		ontology.add(hasGeometrydomainAxiom);
 		ontology.add(hasGeometryrangeAxiom);
+		
+		OWLObjectProperty rcc8ntpp = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8ntpp"));
+		OWLObjectPropertyDomainAxiom rcc8ntppdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8ntpp, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8ntpprangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8ntpp, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8ntpp));
+		ontology.add(rcc8ntppdomainAxiom);
+		ontology.add(rcc8ntpprangeAxiom);
+		
+		OWLObjectProperty rcc8ec = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8ec"));
+		OWLObjectPropertyDomainAxiom rcc8ecdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8ec, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8ecrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8ec, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8ec));
+		ontology.add(rcc8ecdomainAxiom);
+		ontology.add(rcc8ecrangeAxiom);
+		
+		OWLObjectProperty rcc8dc = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8dc"));
+		OWLObjectPropertyDomainAxiom rcc8dcdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8dc, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8dcrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8dc, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8dc));
+		ontology.add(rcc8dcdomainAxiom);
+		ontology.add(rcc8dcrangeAxiom);
+		
+		OWLObjectProperty rcc8po = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8po"));
+		OWLObjectPropertyDomainAxiom rcc8podomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8po, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8porangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8po, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8po));
+		ontology.add(rcc8podomainAxiom);
+		ontology.add(rcc8porangeAxiom);
+		
+		OWLObjectProperty rcc8tpp = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8tpp"));
+		OWLObjectPropertyDomainAxiom rcc8tppdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8tpp, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8tpprangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8tpp, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8tpp));
+		ontology.add(rcc8tppdomainAxiom);
+		ontology.add(rcc8tpprangeAxiom);
+		
+		OWLObjectProperty rcc8tppi = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8tppi"));
+		OWLObjectPropertyDomainAxiom rcc8tppidomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8tppi, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8tppirangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8tppi, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8tppi));
+		ontology.add(rcc8tppidomainAxiom);
+		ontology.add(rcc8tppirangeAxiom);
+
+		OWLObjectProperty rcc8ntppi = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8ntppi"));
+		OWLObjectPropertyDomainAxiom rcc8ntppidomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8ntppi, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8ntppirangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8ntppi, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8ntppi));
+		ontology.add(rcc8ntppidomainAxiom);
+		ontology.add(rcc8ntppirangeAxiom);
+		
+		OWLObjectProperty rcc8eq = factory.getOWLObjectProperty(IRI.create(pre_GEO + "rcc8eq"));
+		OWLObjectPropertyDomainAxiom rcc8eqdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(rcc8eq, SpatialObject);
+		OWLObjectPropertyRangeAxiom rcc8eqrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(rcc8eq, SpatialObject);
+		ontology.add(factory.getOWLDeclarationAxiom(rcc8eq));
+		ontology.add(rcc8eqdomainAxiom);
+		ontology.add(rcc8eqrangeAxiom);
 		
 		OWLObjectProperty hasTime = factory.getOWLObjectProperty(IRI.create(ns,"hasTime"));
 		OWLObjectPropertyDomainAxiom hasTimedomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasTime, Observation);
