@@ -21,6 +21,13 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.reasoner.ConsoleProgressMonitor;
+import org.semanticweb.owlapi.reasoner.InferenceType;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.OWLReasonerConfiguration;
+import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+import org.semanticweb.owlapi.reasoner.SimpleConfiguration;
+import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 
 public class App 
@@ -392,5 +399,16 @@ public class App
 	//} catch (IOException e) {
 	//e.printStackTrace();
 	//}
+	
+        /* CONSISTENT CHECKING
+        OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
+		ConsoleProgressMonitor progressMonitor = new ConsoleProgressMonitor();
+		OWLReasonerConfiguration config = new SimpleConfiguration(progressMonitor);
+		OWLReasoner reasoner = reasonerFactory.createReasoner(ontology, config);
+		reasoner.precomputeInferences(InferenceType.CLASS_ASSERTIONS);
+        String answer;        
+        if (reasoner.isConsistent()) answer = "Ouiiiii!!!"; else answer = "No";
+        System.out.println ("The ontology is Consistent? " + answer);
+         */
     }
 }
