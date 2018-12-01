@@ -1,4 +1,4 @@
-package lab.ssn.lab.ssn.ontology;
+package ontoInd4;
 
 import java.io.File;
 import org.semanticweb.owlapi.apibinding.OWLManager;
