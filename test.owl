@@ -8,6 +8,9 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:sosa="http://www.w3.org/ns/sosa/">
     <owl:Ontology rdf:about="http://industry.ont">
+        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <owl:imports rdf:resource="http://www.w3.org/2006/time#"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/ssn/"/>
     </owl:Ontology>
     
 
