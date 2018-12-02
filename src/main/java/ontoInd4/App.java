@@ -141,14 +141,111 @@ public class App
 		ontology.add(factory.getOWLDeclarationAxiom(TemporalEntity));
 		ontology.add(factory.getOWLSubClassOfAxiom(Instant, TemporalEntity));
 		ontology.add(factory.getOWLSubClassOfAxiom(Interval, TemporalEntity));
-
-		//AddImport ALLEN Operators
-		//OWLObjectProperty hasBeginning = factory.getOWLObjectProperty(IRI.create(pre_TIME + "hasBeginning"));
-		//OWLObjectPropertyDomainAxiom hasBeginningdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasBeginning, TemporalEntity);
-		//OWLObjectPropertyRangeAxiom hasBeginningrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasBeginning, Instant);
-		//ontology.add(factory.getOWLDeclarationAxiom(hasBeginning));
-		//ontology.add(hasBeginningdomainAxiom);
-		//ontology.add(hasBeginningrangeAxiom);
+		
+		OWLObjectProperty intervalIn = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalIn"));
+		OWLObjectPropertyDomainAxiom intervalIndomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalIn, Interval);
+		OWLObjectPropertyRangeAxiom intervalInrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalIn, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalIn));
+		ontology.add(intervalIndomainAxiom);
+		ontology.add(intervalInrangeAxiom);
+		
+		OWLObjectProperty intervalDisjoint = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalDisjoint"));
+		OWLObjectPropertyDomainAxiom intervalDisjointdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalDisjoint, Interval);
+		OWLObjectPropertyRangeAxiom intervalDisjointrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalDisjoint, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalDisjoint));
+		ontology.add(intervalDisjointdomainAxiom);
+		ontology.add(intervalDisjointrangeAxiom);
+		
+		OWLObjectProperty intervalEquals = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalEquals"));
+		OWLObjectPropertyDomainAxiom intervalEqualsdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalEquals, Interval);
+		OWLObjectPropertyRangeAxiom intervalEqualsrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalEquals, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalEquals));
+		ontology.add(intervalEqualsdomainAxiom);
+		ontology.add(intervalEqualsrangeAxiom);
+		
+		OWLObjectProperty intervalFinishedBy = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalFinishedBy"));
+		OWLObjectPropertyDomainAxiom intervalFinishedBydomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalFinishedBy, Interval);
+		OWLObjectPropertyRangeAxiom intervalFinishedByrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalFinishedBy, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalFinishedBy));
+		ontology.add(intervalFinishedBydomainAxiom);
+		ontology.add(intervalFinishedByrangeAxiom);
+		
+		OWLObjectProperty intervalFinishes = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalFinishes"));
+		OWLObjectPropertyDomainAxiom intervalFinishesdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalFinishes, Interval);
+		OWLObjectPropertyRangeAxiom intervalFinishesrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalFinishes, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalFinishes));
+		ontology.add(intervalFinishesdomainAxiom);
+		ontology.add(intervalFinishesrangeAxiom);
+		
+		OWLObjectProperty intervalContains = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalContains"));
+		OWLObjectPropertyDomainAxiom intervalContainsdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalContains, Interval);
+		OWLObjectPropertyRangeAxiom intervalContainsrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalContains, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalContains));
+		ontology.add(intervalContainsdomainAxiom);
+		ontology.add(intervalContainsrangeAxiom);
+		
+		OWLObjectProperty intervalDuring = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalDuring"));
+		OWLObjectPropertyDomainAxiom intervalDuringdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalDuring, Interval);
+		OWLObjectPropertyRangeAxiom intervalDuringrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalDuring, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalDuring));
+		ontology.add(intervalDuringdomainAxiom);
+		ontology.add(intervalDuringrangeAxiom);
+		
+		OWLObjectProperty intervalStartedBy = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalStartedBy"));
+		OWLObjectPropertyDomainAxiom intervalStartedBydomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalStartedBy, Interval);
+		OWLObjectPropertyRangeAxiom intervalStartedByrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalStartedBy, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalStartedBy));
+		ontology.add(intervalStartedBydomainAxiom);
+		ontology.add(intervalStartedByrangeAxiom);
+		
+		OWLObjectProperty intervalStarts = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalStarts"));
+		OWLObjectPropertyDomainAxiom intervalStartsdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalStarts, Interval);
+		OWLObjectPropertyRangeAxiom intervalStartsrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalStarts, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalStarts));
+		ontology.add(intervalStartsdomainAxiom);
+		ontology.add(intervalStartsrangeAxiom);
+		
+		OWLObjectProperty intervalOverlappedBy = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalOverlaps"));
+		OWLObjectPropertyDomainAxiom intervalOverlappedBydomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalOverlappedBy, Interval);
+		OWLObjectPropertyRangeAxiom intervalOverlappedByrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalOverlappedBy, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalOverlappedBy));
+		ontology.add(intervalOverlappedBydomainAxiom);
+		ontology.add(intervalOverlappedByrangeAxiom);
+		
+		OWLObjectProperty intervalOverlaps = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalOverlaps"));
+		OWLObjectPropertyDomainAxiom intervalOverlapsdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalOverlaps, Interval);
+		OWLObjectPropertyRangeAxiom intervalOverlapsrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalOverlaps, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalOverlaps));
+		ontology.add(intervalOverlapsdomainAxiom);
+		ontology.add(intervalOverlapsrangeAxiom);
+		
+		OWLObjectProperty intervalMetBy = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalMetBy"));
+		OWLObjectPropertyDomainAxiom intervalMetBydomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalMetBy, Interval);
+		OWLObjectPropertyRangeAxiom intervalMetByrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalMetBy, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalMetBy));
+		ontology.add(intervalMetBydomainAxiom);
+		ontology.add(intervalMetByrangeAxiom);
+		
+		OWLObjectProperty intervalMeets = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalMeets"));
+		OWLObjectPropertyDomainAxiom intervalMeetsdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalMeets, Interval);
+		OWLObjectPropertyRangeAxiom intervalMeetsrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalMeets, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalMeets));
+		ontology.add(intervalMeetsdomainAxiom);
+		ontology.add(intervalMeetsrangeAxiom);
+		
+		OWLObjectProperty intervalAfter = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalAfter"));
+		OWLObjectPropertyDomainAxiom intervalAfterdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalAfter, Interval);
+		OWLObjectPropertyRangeAxiom intervalAfterrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalAfter, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalAfter));
+		ontology.add(intervalAfterdomainAxiom);
+		ontology.add(intervalAfterrangeAxiom);
+		
+		OWLObjectProperty intervalBefore = factory.getOWLObjectProperty(IRI.create(pre_TIME + "intervalBefore"));
+		OWLObjectPropertyDomainAxiom intervalBeforedomainAxiom = factory.getOWLObjectPropertyDomainAxiom(intervalBefore, Interval);
+		OWLObjectPropertyRangeAxiom intervalBeforerangeAxiom = factory.getOWLObjectPropertyRangeAxiom(intervalBefore, Interval);
+		ontology.add(factory.getOWLDeclarationAxiom(intervalBefore));
+		ontology.add(intervalBeforedomainAxiom);
+		ontology.add(intervalBeforerangeAxiom);
 		
 		OWLObjectProperty hasBeginning = factory.getOWLObjectProperty(IRI.create(pre_TIME + "hasBeginning"));
 		OWLObjectPropertyDomainAxiom hasBeginningdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasBeginning, TemporalEntity);
@@ -340,7 +437,7 @@ public class App
 		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorWindSpeed = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_WindSpeed);
 		ontology.add(Meteorolgy_SensorWindSpeed);
 		
-        File fileformated = new File("/home/franco/Repositories/lab.ssn.ontology/test.owl");
+        File fileformated = new File("/home/franco/Repositories/OntoInd4/test.owl");
         
         try {
 			//ontology.saveOntology(System.out);
