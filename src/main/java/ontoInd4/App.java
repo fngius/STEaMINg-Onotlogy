@@ -1,18 +1,34 @@
 package ontoInd4;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Stream;
+
+import javax.crypto.Mac;
+
+import org.apache.commons.io.output.ThresholdingOutputStream;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDataHasValue;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
+import org.semanticweb.owlapi.model.OWLDataRange;
+import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLObjectHasValue;
+import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
@@ -32,7 +48,8 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 public class App 
 {
-    public static void main( String[] args ) throws OWLOntologyCreationException
+    @SuppressWarnings("null")
+	public static void main( String[] args ) throws OWLOntologyCreationException
     {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         OWLDataFactory factory = manager.getOWLDataFactory();
@@ -104,10 +121,13 @@ public class App
 		ontology.add(factory.getOWLSubClassOfAxiom(WorkStation,ManufacturingFacility));
 		ontology.add(factory.getOWLSubClassOfAxiom(Machine,ManufacturingFacility));
 		
+        List<OWLClass> list = Arrays.asList(Machine,WorkStation,Cell,Line);
+		ontology.add(factory.getOWLDisjointClassesAxiom(list));
+
 		ontology.add(factory.getOWLDeclarationAxiom(Process));
 		
 		OWLClass Platform 			= factory.getOWLClass(IRI.create(pre_SOSAOnt + "Platform"));
-		OWLClass System 			= factory.getOWLClass(IRI.create(pre_SOSAOnt + "System"));
+		//OWLClass System 			= factory.getOWLClass(IRI.create(pre_SOSAOnt + "System"));
 		OWLClass Sensor 			= factory.getOWLClass(IRI.create(pre_SOSAOnt + "Sensor"));
 		OWLClass Property 			= factory.getOWLClass(IRI.create(pre_SSNOnt  + "Property"));
 		OWLClass ObservableProperty = factory.getOWLClass(IRI.create(pre_SOSAOnt + "ObservableProperty"));
@@ -116,9 +136,10 @@ public class App
 		OWLClass Result             = factory.getOWLClass(IRI.create(pre_SOSAOnt + "Result"));
 		
 		ontology.add(factory.getOWLDeclarationAxiom(Result));
-		ontology.add(factory.getOWLDeclarationAxiom(System));
+		//ontology.add(factory.getOWLDeclarationAxiom(System));
 		//ontology.add(factory.getOWLDeclarationAxiom(Platform));
-		ontology.add(factory.getOWLSubClassOfAxiom(Sensor,System));
+		//ontology.add(factory.getOWLSubClassOfAxiom(Sensor,System));
+		ontology.add(factory.getOWLDeclarationAxiom(Sensor));
 		ontology.add(factory.getOWLDeclarationAxiom(Property));
 		ontology.add(factory.getOWLSubClassOfAxiom(ObservableProperty, Property));
 		ontology.add(factory.getOWLDeclarationAxiom(Observation));
@@ -128,8 +149,17 @@ public class App
 		
 		OWLClass Situation = factory.getOWLClass(IRI.create(nsSituation,"Situation"));
 		ontology.add(factory.getOWLSubClassOfAxiom(Situation, Observation));
-		//ontology.add(factory.getOWLDeclarationAxiom(Situation));
-		
+		//ontology.add(factory.getOWLDeclarationAxiom(Situation));		
+
+
+		OWLObjectProperty isPartOf = factory.getOWLObjectProperty(IRI.create(ns,"isPartOf"));
+		OWLObjectPropertyDomainAxiom isPartOfdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(isPartOf, ManufacturingFacility);
+		OWLObjectPropertyRangeAxiom isPartOfrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(isPartOf, ManufacturingFacility);
+		ontology.add(factory.getOWLDeclarationAxiom(isPartOf));
+		ontology.add(isPartOfdomainAxiom);
+		ontology.add(isPartOfrangeAxiom);
+
+		/*
 		OWLObjectProperty MisPartOfW = factory.getOWLObjectProperty(IRI.create(ns,"MisPartOfW"));
 		OWLObjectPropertyDomainAxiom MisPartOfWdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(MisPartOfW, Machine);
 		OWLObjectPropertyRangeAxiom MisPartOfWrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(MisPartOfW, WorkStation);
@@ -150,7 +180,7 @@ public class App
 		ontology.add(factory.getOWLDeclarationAxiom(CisPartOfL));
 		ontology.add(CisPartOfLdomainAxiom);
 		ontology.add(CisPartOfLrangeAxiom);
-		
+		*/
 		OWLObjectProperty operates = factory.getOWLObjectProperty(IRI.create(ns,"operates"));
 		OWLObjectPropertyDomainAxiom operatesdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(operates, Staff);
 		OWLObjectPropertyRangeAxiom operatesrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(operates, ManufacturingFacility);
@@ -346,7 +376,7 @@ public class App
 		ontology.add(factory.getOWLDeclarationAxiom(hasEnd));
 		ontology.add(hasEnddomainAxiom);
 		ontology.add(hasEndrangeAxiom);
-		
+
 		OWLDataProperty inXSDDateTimeStamp = factory.getOWLDataProperty(IRI.create(pre_TIME + "inXSDDateTimeStamp"));
 		OWLDataPropertyDomainAxiom inXSDDateTimeStampdomainAxiom = factory.getOWLDataPropertyDomainAxiom(inXSDDateTimeStamp, Instant);
 		OWLDataPropertyRangeAxiom inXSDDateTimeStamprangeAxiom = factory.getOWLDataPropertyRangeAxiom(inXSDDateTimeStamp, dateTimeStamp);
@@ -492,7 +522,6 @@ public class App
 		
 		
 		/* INDIVIDUALS */
-		/*
 		OWLIndividual Nacelle = factory.getOWLNamedIndividual(IRI.create(ns,"Nacelle"));
 		OWLClassAssertionAxiom NucelleResource = factory.getOWLClassAssertionAxiom(Resource, Nacelle);
 		ontology.add(NucelleResource);
@@ -507,23 +536,92 @@ public class App
 		
 		OWLObjectPropertyAssertionAxiom Nacelle_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(hosts, Nacelle, S_temp_Nacelle);
 		ontology.add(Nacelle_SensorTemp);
+		OWLObjectPropertyAssertionAxiom obsProp_NacelleTemp_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_temp_Nacelle, Temp_Nacelle);
+		ontology.add(obsProp_NacelleTemp_SensorTemp);
+
+		OWLIndividual Gearbox = factory.getOWLNamedIndividual(IRI.create(ns,"Gearbox"));
+		OWLClassAssertionAxiom GearboxResource = factory.getOWLClassAssertionAxiom(Resource, Gearbox);
+		ontology.add(GearboxResource);
+
+		OWLIndividual S_Gearbox_oilTemp = factory.getOWLNamedIndividual(IRI.create(ns,"S_Gearbox_oilTemp"));
+		OWLClassAssertionAxiom Sensor_Gearbox_oilTemp = factory.getOWLClassAssertionAxiom(Sensor, S_Gearbox_oilTemp);
+		ontology.add(Sensor_Gearbox_oilTemp);
 		
+		OWLIndividual Gearbox_oilTemp = factory.getOWLNamedIndividual(IRI.create(ns,"Gearbox_oilTemp"));
+		OWLClassAssertionAxiom Gearbox_oilTemp_Prop = factory.getOWLClassAssertionAxiom(ObservableProperty, Gearbox_oilTemp);
+		ontology.add(Gearbox_oilTemp_Prop);
+		
+		OWLObjectPropertyAssertionAxiom Gearbox_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(hosts, Gearbox, S_Gearbox_oilTemp);
+		ontology.add(Gearbox_SensorTemp);
+		OWLObjectPropertyAssertionAxiom obsProp_GearboxOilTemp = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_Gearbox_oilTemp, Gearbox_oilTemp);
+		ontology.add(obsProp_GearboxOilTemp);
+
+		OWLIndividual S_Gearbox_speed = factory.getOWLNamedIndividual(IRI.create(ns,"S_Gearbox_speed"));
+		OWLClassAssertionAxiom Sensor_Gearbox_speed = factory.getOWLClassAssertionAxiom(Sensor, S_Gearbox_speed);
+		ontology.add(Sensor_Gearbox_speed);
+		
+		OWLIndividual Gearbox_speed = factory.getOWLNamedIndividual(IRI.create(ns,"Gearbox_speed"));
+		OWLClassAssertionAxiom Gearbox_speed_Prop = factory.getOWLClassAssertionAxiom(ObservableProperty, Gearbox_speed);
+		ontology.add(Gearbox_speed_Prop);
+
+		OWLObjectPropertyAssertionAxiom Gearbox_SensorSpeed = factory.getOWLObjectPropertyAssertionAxiom(hosts, Gearbox, S_Gearbox_speed);
+		ontology.add(Gearbox_SensorSpeed);
+		OWLObjectPropertyAssertionAxiom obsProp_GearboxSpeed = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_Gearbox_speed, Gearbox_speed);
+		ontology.add(obsProp_GearboxSpeed);
+		
+		OWLIndividual Converter = factory.getOWLNamedIndividual(IRI.create(ns,"Converter"));
+		OWLClassAssertionAxiom ConverterResource = factory.getOWLClassAssertionAxiom(Resource, Converter);
+		ontology.add(ConverterResource);
+		
+		OWLIndividual S_PowOutput_Converter = factory.getOWLNamedIndividual(IRI.create(ns,"S_PowOutput_Converter"));
+		OWLClassAssertionAxiom Sensor_PowOutput_Converter = factory.getOWLClassAssertionAxiom(Sensor, S_PowOutput_Converter);
+		ontology.add(Sensor_PowOutput_Converter);
+
+		OWLIndividual PowOutput_Converter = factory.getOWLNamedIndividual(IRI.create(ns,"PowOutput_Converter"));
+		OWLClassAssertionAxiom PowOutput_Converter_Prop = factory.getOWLClassAssertionAxiom(ObservableProperty, PowOutput_Converter);
+		ontology.add(PowOutput_Converter_Prop);
+
+		OWLObjectPropertyAssertionAxiom Converter_PowerOutput = factory.getOWLObjectPropertyAssertionAxiom(hosts, Converter, S_PowOutput_Converter);
+		ontology.add(Converter_PowerOutput);
+		OWLObjectPropertyAssertionAxiom obsProp_ConverterPowerOutput = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_PowOutput_Converter, PowOutput_Converter);
+		ontology.add(obsProp_ConverterPowerOutput);
+
+
+		OWLClass Anomaly_GearOilTemp = factory.getOWLClass(IRI.create(nsSituation + "Anomaly_GearOilTemp"));
+
+		OWLObjectHasValue observedProperty_Gearbox_oilTemp_Restriction = factory.getOWLObjectHasValue(observedProperty, Gearbox_oilTemp);
+		OWLObjectHasValue madeIn_Gearbox = factory.getOWLObjectHasValue(madeIn, Gearbox);
+		OWLDataRange dataRange = null;
+		dataRange = factory.getOWLDatatypeMaxExclusiveRestriction(65);
+		OWLDataSomeValuesFrom hasResult_Gearbox_oilTemp = factory.getOWLDataSomeValuesFrom(hasSimpleResult, dataRange);
+		//OWLDataHasValue hasResult_Gearbox_oilTemp = factory.getOWLDataHasValue(hasSimpleResult, factory.getOWLLiteral(65));
+		
+
+		Set<OWLClassExpression> mySet = new HashSet<OWLClassExpression>();
+		mySet.add(Observation);
+		mySet.add(observedProperty_Gearbox_oilTemp_Restriction);
+		mySet.add(madeIn_Gearbox);
+		mySet.add(hasResult_Gearbox_oilTemp);
+		OWLObjectIntersectionOf a = factory.getOWLObjectIntersectionOf(mySet);
+		ontology.add(factory.getOWLSubClassOfAxiom(Anomaly_GearOilTemp,a));
+
+		/*
 		OWLIndividual Meteorology = factory.getOWLNamedIndividual(IRI.create(ns,"Meteorology"));
 		OWLClassAssertionAxiom MeteorologyResource = factory.getOWLClassAssertionAxiom(Resource, Meteorology);
 		ontology.add(MeteorologyResource);
-		
+
 		OWLIndividual S_temp_Ambient = factory.getOWLNamedIndividual(IRI.create(ns,"S_temp_Ambient"));
 		OWLClassAssertionAxiom Sensor_temp_Ambient = factory.getOWLClassAssertionAxiom(Sensor, S_temp_Ambient);
 		ontology.add(Sensor_temp_Ambient);
-		
+
 		OWLIndividual S_WindDir = factory.getOWLNamedIndividual(IRI.create(ns,"S_WindDir"));
 		OWLClassAssertionAxiom Sensor_WindDir = factory.getOWLClassAssertionAxiom(Sensor, S_WindDir);
 		ontology.add(Sensor_WindDir);
-		
+
 		OWLIndividual S_WindSpeed = factory.getOWLNamedIndividual(IRI.create(ns,"S_WindSpeed"));
 		OWLClassAssertionAxiom Sensor_WindSpeed = factory.getOWLClassAssertionAxiom(Sensor, S_WindSpeed);
 		ontology.add(Sensor_WindSpeed);
-		
+
 		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_temp_Ambient);
 		ontology.add(Meteorolgy_SensorTemp);
 		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorWindDir = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_WindDir);
@@ -531,7 +629,8 @@ public class App
 		OWLObjectPropertyAssertionAxiom Meteorolgy_SensorWindSpeed = factory.getOWLObjectPropertyAssertionAxiom(hosts, Meteorology, S_WindSpeed);
 		ontology.add(Meteorolgy_SensorWindSpeed);
 		*/
-        File fileformated = new File("/home/franco/Repositories/OntoInd4/test.owl");
+        
+		File fileformated = new File("/home/franco/Repositories/OntoInd4/test.owl");
         
         try {
 			//ontology.saveOntology(System.out);

@@ -5,7 +5,8 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/">
     <owl:Ontology rdf:about="http://industry.ont">
     </owl:Ontology>
     
@@ -49,36 +50,6 @@
     
 
 
-    <!-- http://industry.ont#CisPartOfL -->
-
-
-    <owl:ObjectProperty rdf:about="http://industry.ont#CisPartOfL">
-        <rdfs:domain rdf:resource="http://industry.ont#Cell"/>
-        <rdfs:range rdf:resource="http://industry.ont#Line"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://industry.ont#MisPartOfW -->
-
-
-    <owl:ObjectProperty rdf:about="http://industry.ont#MisPartOfW">
-        <rdfs:domain rdf:resource="http://industry.ont#Machine"/>
-        <rdfs:range rdf:resource="http://industry.ont#WorkStation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://industry.ont#WisPartOfC -->
-
-
-    <owl:ObjectProperty rdf:about="http://industry.ont#WisPartOfC">
-        <rdfs:domain rdf:resource="http://industry.ont#WorkStation"/>
-        <rdfs:range rdf:resource="http://industry.ont#Cell"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://industry.ont#hasDuration -->
 
 
@@ -105,6 +76,16 @@
     <owl:ObjectProperty rdf:about="http://industry.ont#hasTime">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://industry.ont#isPartOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://industry.ont#isPartOf">
+        <rdfs:domain rdf:resource="http://industry.ont#ManufacturingFacility"/>
+        <rdfs:range rdf:resource="http://industry.ont#ManufacturingFacility"/>
     </owl:ObjectProperty>
     
 
@@ -696,6 +677,42 @@
     
 
 
+    <!-- http://industrySituation.ont#Anomaly_GearOilTemp -->
+
+
+    <owl:Class rdf:about="http://industrySituation.ont#Anomaly_GearOilTemp">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Observation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://industry.ont#madeIn"/>
+                        <owl:hasValue rdf:resource="http://industry.ont#Gearbox"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
+                        <owl:hasValue rdf:resource="http://industry.ont#Gearbox_oilTemp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hasSimpleResult"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://industrySituation.ont#Situation -->
 
 
@@ -797,16 +814,7 @@
     <!-- http://www.w3.org/ns/sosa/Sensor -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sensor">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/System"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/sosa/System -->
-
-
-    <owl:Class rdf:about="http://www.w3.org/ns/sosa/System"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sensor"/>
     
 
 
@@ -814,6 +822,146 @@
 
 
     <owl:Class rdf:about="http://www.w3.org/ns/ssn/Property"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://industry.ont#Converter -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Converter">
+        <rdf:type rdf:resource="http://industry.ont#Resource"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_PowOutput_Converter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Gearbox -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Gearbox">
+        <rdf:type rdf:resource="http://industry.ont#Resource"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_Gearbox_oilTemp"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_Gearbox_speed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Gearbox_oilTemp -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Gearbox_oilTemp">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Gearbox_speed -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Gearbox_speed">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Nacelle -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Nacelle">
+        <rdf:type rdf:resource="http://industry.ont#Resource"/>
+        <sosa:hosts rdf:resource="http://industry.ont#S_temp_Nacelle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#PowOutput_Converter -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#PowOutput_Converter">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_Gearbox_oilTemp -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_Gearbox_oilTemp">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <sosa:observedProperty rdf:resource="http://industry.ont#Gearbox_oilTemp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_Gearbox_speed -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_Gearbox_speed">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <sosa:observedProperty rdf:resource="http://industry.ont#Gearbox_speed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_PowOutput_Converter -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_PowOutput_Converter">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <sosa:observedProperty rdf:resource="http://industry.ont#PowOutput_Converter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#S_temp_Nacelle -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#S_temp_Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <sosa:observedProperty rdf:resource="http://industry.ont#Temp_Nacelle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://industry.ont#Temp_Nacelle -->
+
+
+    <owl:NamedIndividual rdf:about="http://industry.ont#Temp_Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://industry.ont#Cell"/>
+            <rdf:Description rdf:about="http://industry.ont#Line"/>
+            <rdf:Description rdf:about="http://industry.ont#Machine"/>
+            <rdf:Description rdf:about="http://industry.ont#WorkStation"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
