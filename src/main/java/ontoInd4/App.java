@@ -33,6 +33,7 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
+import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -121,6 +122,12 @@ public class App
 		ontology.add(factory.getOWLSubClassOfAxiom(WorkStation,ManufacturingFacility));
 		ontology.add(factory.getOWLSubClassOfAxiom(Machine,ManufacturingFacility));
 		
+		
+		OWLClass Cause = factory.getOWLClass(IRI.create(ns,"Cause"));
+		ontology.add(factory.getOWLDeclarationAxiom(Cause));
+		OWLClass Diagnosis = factory.getOWLClass(IRI.create(ns,"Diagnosis"));
+		ontology.add(factory.getOWLDeclarationAxiom(Diagnosis));
+		
         List<OWLClass> list = Arrays.asList(Machine,WorkStation,Cell,Line);
 		ontology.add(factory.getOWLDisjointClassesAxiom(list));
 
@@ -135,6 +142,9 @@ public class App
 		OWLClass FeatureOfInterest  = factory.getOWLClass(IRI.create(pre_SOSAOnt + "FeatureOfInterest"));
 		OWLClass Result             = factory.getOWLClass(IRI.create(pre_SOSAOnt + "Result"));
 		
+		OWLClass Anomaly = factory.getOWLClass(IRI.create(ns + "Anomaly"));
+		ontology.add(factory.getOWLSubClassOfAxiom(Anomaly,Observation));
+		
 		ontology.add(factory.getOWLDeclarationAxiom(Result));
 		//ontology.add(factory.getOWLDeclarationAxiom(System));
 		//ontology.add(factory.getOWLDeclarationAxiom(Platform));
@@ -148,8 +158,8 @@ public class App
 		ontology.add(factory.getOWLEquivalentClassesAxiom(Resource, Platform));
 		
 		OWLClass Situation = factory.getOWLClass(IRI.create(nsSituation,"Situation"));
-		ontology.add(factory.getOWLSubClassOfAxiom(Situation, Observation));
-		//ontology.add(factory.getOWLDeclarationAxiom(Situation));		
+		//ontology.add(factory.getOWLSubClassOfAxiom(Situation, Observation));
+		ontology.add(factory.getOWLDeclarationAxiom(Situation));		
 
 
 		OWLObjectProperty isPartOf = factory.getOWLObjectProperty(IRI.create(ns,"isPartOf"));
@@ -520,6 +530,19 @@ public class App
 		ontology.add(hasDurationdomainAxiom);
 		ontology.add(hasDurationrangeAxiom);
 		
+		OWLObjectProperty hasCause = factory.getOWLObjectProperty(IRI.create(ns,"hasCause"));
+		OWLObjectPropertyDomainAxiom hasCausedomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasCause, Anomaly);
+		OWLObjectPropertyRangeAxiom hasCauserangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasCause, Cause);
+		ontology.add(factory.getOWLDeclarationAxiom(hasCause));
+		ontology.add(hasCausedomainAxiom);
+		ontology.add(hasCauserangeAxiom);
+		
+		OWLObjectProperty hasDiagnosis = factory.getOWLObjectProperty(IRI.create(ns,"hasDiagnosis"));
+		OWLObjectPropertyDomainAxiom hasDiagnosisdomainAxiom = factory.getOWLObjectPropertyDomainAxiom(hasDiagnosis, Anomaly);
+		OWLObjectPropertyRangeAxiom hasDiagnosisrangeAxiom = factory.getOWLObjectPropertyRangeAxiom(hasDiagnosis, Diagnosis);
+		ontology.add(factory.getOWLDeclarationAxiom(hasDiagnosis));
+		ontology.add(hasDiagnosisdomainAxiom);
+		ontology.add(hasDiagnosisrangeAxiom);
 		
 		/* INDIVIDUALS */
 		OWLIndividual Nacelle = factory.getOWLNamedIndividual(IRI.create(ns,"Nacelle"));
@@ -530,13 +553,13 @@ public class App
 		OWLClassAssertionAxiom Sensor_temp_Nacelle = factory.getOWLClassAssertionAxiom(Sensor, S_temp_Nacelle);
 		ontology.add(Sensor_temp_Nacelle);
 		
-		OWLIndividual Temp_Nacelle = factory.getOWLNamedIndividual(IRI.create(ns,"Temp_Nacelle"));
-		OWLClassAssertionAxiom Temp_Nacelle_Prop = factory.getOWLClassAssertionAxiom(ObservableProperty, Temp_Nacelle);
+		OWLIndividual Nacelle_Temp = factory.getOWLNamedIndividual(IRI.create(ns,"Temp_Nacelle"));
+		OWLClassAssertionAxiom Temp_Nacelle_Prop = factory.getOWLClassAssertionAxiom(ObservableProperty, Nacelle_Temp);
 		ontology.add(Temp_Nacelle_Prop);
 		
 		OWLObjectPropertyAssertionAxiom Nacelle_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(hosts, Nacelle, S_temp_Nacelle);
 		ontology.add(Nacelle_SensorTemp);
-		OWLObjectPropertyAssertionAxiom obsProp_NacelleTemp_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_temp_Nacelle, Temp_Nacelle);
+		OWLObjectPropertyAssertionAxiom obsProp_NacelleTemp_SensorTemp = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_temp_Nacelle, Nacelle_Temp);
 		ontology.add(obsProp_NacelleTemp_SensorTemp);
 
 		OWLIndividual Gearbox = factory.getOWLNamedIndividual(IRI.create(ns,"Gearbox"));
@@ -586,24 +609,47 @@ public class App
 		OWLObjectPropertyAssertionAxiom obsProp_ConverterPowerOutput = factory.getOWLObjectPropertyAssertionAxiom(observedProperty, S_PowOutput_Converter, PowOutput_Converter);
 		ontology.add(obsProp_ConverterPowerOutput);
 
-
-		OWLClass Anomaly_GearOilTemp = factory.getOWLClass(IRI.create(nsSituation + "Anomaly_GearOilTemp"));
-
+		
+		
+		OWLClass Anomaly_GearOilTemp = factory.getOWLClass(IRI.create(ns + "Anomaly_GearOilTemp"));
+		//ontology.add(factory.getOWLSubClassOfAxiom(Anomaly_GearOilTemp,Situation));
 		OWLObjectHasValue observedProperty_Gearbox_oilTemp_Restriction = factory.getOWLObjectHasValue(observedProperty, Gearbox_oilTemp);
 		OWLObjectHasValue madeIn_Gearbox = factory.getOWLObjectHasValue(madeIn, Gearbox);
 		OWLDataRange dataRange = null;
-		dataRange = factory.getOWLDatatypeMaxExclusiveRestriction(65);
+		dataRange = factory.getOWLDatatypeMinMaxInclusiveRestriction(30.0, 65.0); //factory.getOWLDatatypeMaxExclusiveRestriction(65);
 		OWLDataSomeValuesFrom hasResult_Gearbox_oilTemp = factory.getOWLDataSomeValuesFrom(hasSimpleResult, dataRange);
 		//OWLDataHasValue hasResult_Gearbox_oilTemp = factory.getOWLDataHasValue(hasSimpleResult, factory.getOWLLiteral(65));
-		
-
+		OWLObjectSomeValuesFrom hasCause_GearOilTemp = factory.getOWLObjectSomeValuesFrom(hasCause, Cause);
+		OWLObjectSomeValuesFrom hasDiagnosis_GearOilTemp = factory.getOWLObjectSomeValuesFrom(hasDiagnosis, Diagnosis);
 		Set<OWLClassExpression> mySet = new HashSet<OWLClassExpression>();
-		mySet.add(Observation);
+		mySet.add(Anomaly);
+		mySet.add(hasCause_GearOilTemp);
+		mySet.add(hasDiagnosis_GearOilTemp);
 		mySet.add(observedProperty_Gearbox_oilTemp_Restriction);
 		mySet.add(madeIn_Gearbox);
 		mySet.add(hasResult_Gearbox_oilTemp);
-		OWLObjectIntersectionOf a = factory.getOWLObjectIntersectionOf(mySet);
-		ontology.add(factory.getOWLSubClassOfAxiom(Anomaly_GearOilTemp,a));
+		OWLObjectIntersectionOf restriction_Gearbox_oilTemp = factory.getOWLObjectIntersectionOf(mySet);
+		ontology.add(factory.getOWLSubClassOfAxiom(Anomaly_GearOilTemp,restriction_Gearbox_oilTemp));
+
+		OWLClass Anomaly_NacelleTemp = factory.getOWLClass(IRI.create(ns + "Anomaly_NacelleTemp"));
+		//ontology.add(factory.getOWLSubClassOfAxiom(Anomaly_GearOilTemp,Situation));
+		OWLObjectHasValue observedProperty_NacelleTemp_Restriction = factory.getOWLObjectHasValue(observedProperty, Nacelle_Temp);
+		OWLObjectHasValue madeIn_Nacelle = factory.getOWLObjectHasValue(madeIn, Nacelle);
+		OWLDataRange dataRange_NacelleTemp = null;
+		dataRange_NacelleTemp = factory.getOWLDatatypeMinMaxInclusiveRestriction(5.0, 50.0);//factory.getOWLDatatypeMaxExclusiveRestriction(50);
+		OWLDataSomeValuesFrom hasResult_NacelleTemp = factory.getOWLDataSomeValuesFrom(hasSimpleResult, dataRange_NacelleTemp);
+		//OWLDataHasValue hasResult_Gearbox_oilTemp = factory.getOWLDataHasValue(hasSimpleResult, factory.getOWLLiteral(65));
+		OWLObjectSomeValuesFrom hasCause_NacelleTemp = factory.getOWLObjectSomeValuesFrom(hasCause, Cause);
+		OWLObjectSomeValuesFrom hasDiagnosis_NacelleTemp = factory.getOWLObjectSomeValuesFrom(hasDiagnosis, Diagnosis);
+		Set<OWLClassExpression> mySet_NacelleTemp = new HashSet<OWLClassExpression>();
+		mySet_NacelleTemp.add(Anomaly);
+		mySet_NacelleTemp.add(hasCause_NacelleTemp);
+		mySet_NacelleTemp.add(hasDiagnosis_NacelleTemp);
+		mySet_NacelleTemp.add(observedProperty_NacelleTemp_Restriction);
+		mySet_NacelleTemp.add(madeIn_Nacelle);
+		mySet_NacelleTemp.add(hasResult_NacelleTemp);
+		OWLObjectIntersectionOf restriction_NacelleTemp = factory.getOWLObjectIntersectionOf(mySet_NacelleTemp);
+		ontology.add(factory.getOWLSubClassOfAxiom(Anomaly_NacelleTemp,restriction_NacelleTemp));
 
 		/*
 		OWLIndividual Meteorology = factory.getOWLNamedIndividual(IRI.create(ns,"Meteorology"));
