@@ -1,12 +1,18 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://onto#"
      xml:base="http://onto"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:sosa="http://www.w3.org/ns/sosa/">
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/">
     <owl:Ontology rdf:about="http://onto">
         <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql#"/>
         <owl:imports rdf:resource="http://www.w3.org/2006/time#"/>
@@ -83,16 +89,6 @@
     
 
 
-    <!-- http://onto#hasObservation -->
-
-
-    <owl:ObjectProperty rdf:about="http://onto#hasObservation">
-        <rdfs:domain rdf:resource="http://industrySituation.ont#Situation"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://onto#hasSensor -->
 
 
@@ -117,7 +113,6 @@
 
 
     <owl:ObjectProperty rdf:about="http://onto#isInSituation">
-        <owl:inverseOf rdf:resource="http://onto#hasObservation"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
         <rdfs:range rdf:resource="http://industrySituation.ont#Situation"/>
     </owl:ObjectProperty>
@@ -1018,6 +1013,15 @@
     
 
 
+    <!-- http://onto#SITUATION1234-7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#SITUATION1234-7">
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://onto#S_Gearbox_oilTemp -->
 
 
@@ -1063,6 +1067,25 @@
 
     <owl:NamedIndividual rdf:about="http://onto#Temp_Nacelle">
         <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM1-5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM1-5">
+        <isInSituation rdf:resource="http://onto#SITUATION1234-7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM2-28 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM2-28">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <isInSituation rdf:resource="http://onto#SITUATION1234-7"/>
     </owl:NamedIndividual>
     
 

@@ -1,0 +1,1780 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://onto_inferred#"
+     xml:base="http://onto_inferred"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://onto_inferred"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://onto#hasCause -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#hasCause">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#hasDiagnosis -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#hasDiagnosis">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#hasDuration -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#hasDuration">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#hasObservation -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#hasObservation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://onto#isInSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#hasSensor -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#hasSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#hasTime -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#hasTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#isInSituation -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#isInSituation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#isPartOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#isPartOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#islocatedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#islocatedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#madeIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#madeIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#operates -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#operates">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto#performs -->
+
+
+    <owl:ObjectProperty rdf:about="http://onto#performs">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8dc -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8dc">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ec -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ec">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8eq -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8eq">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ntpp -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ntpp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ntppi -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ntppi">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8po -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8po">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8tpp -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8tpp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8tppi -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8tppi">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#after -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#after">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#before -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#before">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasBeginning -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasBeginning">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasEnd -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasEnd">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#inside -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#inside">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalAfter -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalAfter">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalBefore -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalBefore">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalContains -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalContains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalDisjoint -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalDisjoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalDuring -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalDuring">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalEquals -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalEquals">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalFinishedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalFinishedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalFinishes -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalFinishes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalMeets -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalMeets">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalMetBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalMetBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalOverlaps -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalOverlaps">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalStartedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalStartedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalStarts -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalStarts">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasFeatureOfInterest -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasFeatureOfInterest">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasResult -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasResult">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hosts -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hosts">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/madeObservation -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/madeObservation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/observedProperty -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observedProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/hasProperty -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/hasProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asGML -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asGML">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asWKT -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#inXSDDateTimeStamp -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#inXSDDateTimeStamp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasSimpleResult -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/sosa/hasSimpleResult">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://industrySituation.ont#Situation -->
+
+
+    <owl:Class rdf:about="http://industrySituation.ont#Situation"/>
+    
+
+
+    <!-- http://onto#Resource -->
+
+
+    <owl:Class rdf:about="http://onto#Resource"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#SpatialObject -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/ObservableProperty -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Observation -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Observation"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Platform -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Platform"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sensor -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sensor"/>
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/Property -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/ssn/Property"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://onto#Converter -->
+
+
+    <owl:Thing rdf:about="http://onto#Converter">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://onto#Resource"/>
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Gearbox -->
+
+
+    <owl:Thing rdf:about="http://onto#Gearbox">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://onto#Resource"/>
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Gearbox_oilTemp -->
+
+
+    <owl:Thing rdf:about="http://onto#Gearbox_oilTemp">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Gearbox_speed -->
+
+
+    <owl:Thing rdf:about="http://onto#Gearbox_speed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Nacelle -->
+
+
+    <owl:Thing rdf:about="http://onto#Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://onto#Resource"/>
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#PowOutput_Converter -->
+
+
+    <owl:Thing rdf:about="http://onto#PowOutput_Converter">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Px -->
+
+
+    <owl:Thing rdf:about="http://onto#Px">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Py -->
+
+
+    <owl:Thing rdf:about="http://onto#Py">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-0 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-1 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-2 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-3 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-3">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-4 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-5 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-5">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#SITUATION1234-6 -->
+
+
+    <owl:Thing rdf:about="http://onto#SITUATION1234-6">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://industrySituation.ont#Situation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#S_Gearbox_oilTemp -->
+
+
+    <owl:Thing rdf:about="http://onto#S_Gearbox_oilTemp">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#S_Gearbox_speed -->
+
+
+    <owl:Thing rdf:about="http://onto#S_Gearbox_speed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#S_PowOutput_Converter -->
+
+
+    <owl:Thing rdf:about="http://onto#S_PowOutput_Converter">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#S_temp_Nacelle -->
+
+
+    <owl:Thing rdf:about="http://onto#S_temp_Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#Temp_Nacelle -->
+
+
+    <owl:Thing rdf:about="http://onto#Temp_Nacelle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-0 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-1 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-10 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-10">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-11 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-11">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-12 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-12">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-13 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-13">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-14 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-14">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-15 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-15">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-16 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-16">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-17 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-17">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-18 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-18">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-19 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-19">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-2 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-20 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-20">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-21 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-21">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-22 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-22">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-23 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-23">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-3 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-3">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-4 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-5 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-5">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-6 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-6">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-7 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-7">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-8 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-8">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM1-9 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM1-9">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-0 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-1 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-10 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-10">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-11 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-11">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-12 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-12">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-13 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-13">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-14 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-14">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-15 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-15">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-16 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-16">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-17 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-17">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-18 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-18">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-19 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-19">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-2 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-20 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-20">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-21 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-21">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-22 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-22">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-23 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-23">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-3 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-3">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-4 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-5 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-5">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-6 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-6">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-7 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-7">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-8 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-8">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#obsTM2-9 -->
+
+
+    <owl:Thing rdf:about="http://onto#obsTM2-9">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#sensorTM1 -->
+
+
+    <owl:Thing rdf:about="http://onto#sensorTM1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://onto#sensorTM2 -->
+
+
+    <owl:Thing rdf:about="http://onto#sensorTM2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-0 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-1 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-10 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-10">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-11 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-11">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-12 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-12">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-13 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-13">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-14 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-14">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-15 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-15">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-16 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-16">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-17 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-17">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-18 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-18">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-19 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-19">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-2 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-20 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-20">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-21 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-21">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-22 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-22">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-23 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-23">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-3 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-3">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-4 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-5 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-5">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-6 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-6">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-7 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-7">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-8 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-8">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM1-9 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM1-9">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-0 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-1 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-10 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-10">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-11 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-11">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-12 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-12">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-13 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-13">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-14 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-14">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-15 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-15">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-16 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-16">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-17 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-17">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-18 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-18">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-19 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-19">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-2 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-20 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-20">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-21 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-21">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-22 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-22">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-23 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-23">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-3 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-3">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-4 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-5 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-5">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-6 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-6">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-7 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-7">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-8 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-8">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM2-9 -->
+
+
+    <owl:Thing rdf:about="http://www.w3.org/2006/time#t-obsTM2-9">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.7.2018-09-02T11:51:43Z) https://github.com/owlcs/owlapi/ -->
+
+
