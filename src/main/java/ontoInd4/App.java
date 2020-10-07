@@ -29,6 +29,7 @@ import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLIndividualAxiom;
 import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
@@ -57,8 +58,6 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 public class App {
 
-	@SuppressWarnings("null")
-
 	public static void main(String[] args) throws OWLOntologyCreationException {
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
@@ -66,6 +65,8 @@ public class App {
 
 		String ontologyURI = "http://onto";
 		String ns = ontologyURI + "#";
+
+		OntologyAssistant oa = new OntologyAssistant();
 
 		OWLOntology ontology = manager.createOntology(IRI.create(ontologyURI));
 
@@ -125,7 +126,7 @@ public class App {
 		OWLClass WorkStation = factory.getOWLClass(IRI.create(ns, "WorkStation"));
 		OWLClass Machine = factory.getOWLClass(IRI.create(ns, "Machine"));
 
-		// ontology.add(factory.getOWLDeclarationAxiom(Resource));
+		ontology.add(factory.getOWLDeclarationAxiom(Resource));
 		ontology.add(factory.getOWLSubClassOfAxiom(Product, Resource));
 		ontology.add(factory.getOWLSubClassOfAxiom(Part, Product));
 		ontology.add(factory.getOWLSubClassOfAxiom(Staff, Resource));
@@ -640,6 +641,31 @@ public class App {
 		ontology.add(situationTimedomainAxiom);
 		ontology.add(situationTimerangeAxiom);
 
+		/* INDIVIDUALS */
+		OWLIndividual PL1 = factory.getOWLNamedIndividual(IRI.create(ns,"PL1"));
+		OWLClassAssertionAxiom prodLinePL1 = factory.getOWLClassAssertionAxiom(Line, PL1);
+		ontology.add(prodLinePL1);
+
+		OWLIndividual M3 = factory.getOWLNamedIndividual(IRI.create(ns,"M3"));
+		OWLClassAssertionAxiom machineM3 = factory.getOWLClassAssertionAxiom(Machine, M3);
+		ontology.add(machineM3);
+
+		oa.relateIndividuals(ontology, manager, factory, isPartOf, M3, PL1);
+
+		OWLIndividual S_C_Wtemp = factory.getOWLNamedIndividual(IRI.create(pre_SOSAOnt,"S_C_Wtemp"));
+		OWLClassAssertionAxiom sensorS_C_Wtemp = factory.getOWLClassAssertionAxiom(Sensor, S_C_Wtemp);
+		ontology.add(sensorS_C_Wtemp);
+		OWLIndividual S_TG_temp = factory.getOWLNamedIndividual(IRI.create(pre_SOSAOnt,"S_TG_temp"));
+		OWLClassAssertionAxiom sensorS_TG_temp = factory.getOWLClassAssertionAxiom(Sensor, S_TG_temp);
+		ontology.add(sensorS_TG_temp);
+		OWLIndividual S_G_temp = factory.getOWLNamedIndividual(IRI.create(pre_SOSAOnt,"S_G_temp"));
+		OWLClassAssertionAxiom sensorS_G_temp = factory.getOWLClassAssertionAxiom(Sensor, S_G_temp);
+		ontology.add(sensorS_G_temp);
+
+		oa.relateIndividuals(ontology, manager, factory, hosts, M3, S_C_Wtemp);
+		oa.relateIndividuals(ontology, manager, factory, hosts, M3, S_TG_temp);
+		oa.relateIndividuals(ontology, manager, factory, hosts, M3, S_G_temp);
+
 		File fileformated = new File("/home/franco/Repositories/OntoInd4/NEWONTOLOGY.owl");
 
 		try {
@@ -652,7 +678,7 @@ public class App {
 		/*
 		 * CONSISTENT CHECKING 
 		 */ 
-		
+
 		OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory(); 
 		ConsoleProgressMonitor progressMonitor = new ConsoleProgressMonitor(); 
 		OWLReasonerConfiguration config = new SimpleConfiguration(progressMonitor); 

@@ -6,12 +6,9 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:sosa="http://www.w3.org/ns/sosa/">
-    <owl:Ontology rdf:about="http://onto">
-        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql#"/>
-        <owl:imports rdf:resource="http://www.w3.org/2006/time#"/>
-        <owl:imports rdf:resource="http://www.w3.org/ns/ssn/"/>
-    </owl:Ontology>
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
+     xmlns:time="http://www.w3.org/2006/time#">
+    <owl:Ontology/>
     
 
 
@@ -1018,6 +1015,15 @@
     
 
 
+    <!-- http://onto#Px -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#Px">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://onto#S_Gearbox_oilTemp -->
 
 
@@ -1063,6 +1069,205 @@
 
     <owl:NamedIndividual rdf:about="http://onto#Temp_Nacelle">
         <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-0">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-0"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>0^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+        <sosa:hasSimpleResult>2^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-1">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-1"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>0^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+        <sosa:hasSimpleResult>4^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-2">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-2"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>1^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+        <sosa:hasSimpleResult>2^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-3">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-3"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>1^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-4">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-4"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>1^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-5">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-5"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>3^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-6">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-6"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>3^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#obsTM-7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#obsTM-7">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <hasTime rdf:resource="http://www.w3.org/2006/time#t-obsTM-7"/>
+        <sosa:observedProperty rdf:resource="http://onto#Px"/>
+        <sosa:hasSimpleResult>3^^http://www.w3.org/2001/XMLSchema#integer</sosa:hasSimpleResult>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto#sensorTM -->
+
+
+    <owl:NamedIndividual rdf:about="http://onto#sensorTM">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-0"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-1"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-2"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-3"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-4"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-5"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-6"/>
+        <sosa:madeObservation rdf:resource="http://onto#obsTM-7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-0">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:39:18.567^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+        <time:inXSDDateTimeStamp>2020-09-07 13:43:12.047^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-1">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:39:28.903^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+        <time:inXSDDateTimeStamp>2020-09-07 13:43:22.331^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-2">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:39:39.072^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+        <time:inXSDDateTimeStamp>2020-09-07 13:43:32.541^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-3">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:39:49.274^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-4">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:39:59.497^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-5">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:40:09.72^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-6">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:40:19.949^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#t-obsTM-7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#t-obsTM-7">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <time:inXSDDateTimeStamp>2020-09-07 13:40:30.189^^http://www.w3.org/2001/XMLSchema#dateTimeStamp</time:inXSDDateTimeStamp>
     </owl:NamedIndividual>
     
 
